@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+</head>
+<body>
+    <script>
+    function kalkulator() {
+            var a = parseFloat(prompt("Masukkan angka pertama:"));
+            var operasi = prompt("Masukkan operasi (+, -, *, /):");
+            var b = parseFloat(prompt("Masukkan angka kedua:"));
+
+            let hasil;
+            function tambah(a, b) {
+                hasil = a + b;
+                alert(`${a} + ${b} = ${a + b}`);
+            }
+
+            function kurang(a, b) {
+                hasil = a - b;
+                alert(`${a} - ${b} = ${a - b}`);
+            }
+
+            function kali(a, b) {
+                hasil = a * b;
+                alert(`${a} * ${b} = ${a * b}`);
+            }
+
+            function bagi(a, b) {
+                hasil = a / b;
+                alert(`${a} / ${b} = ${a / b}`);
+            }
+    
+            let output;
+
+            if (operasi === '+') {
+                tambah(a, b);
+            } else if (operasi === '-') {
+                kurang(a, b);
+            } else if (operasi === '*') {
+                kali(a, b);
+            } else if (operasi === '/') {
+                if (b !== 0) {
+                    bagi(a, b);
+                } else {
+                    output = 'Tidak bisa membagi dengan nol';
+                }
+            } else {
+                output = 'Operasi tidak valid';
+            }
+
+            if (hasil !== undefined) {
+                output = (`${a} ${operasi} ${b} = ${hasil}`);
+            }
+
+            console.log(output); // Menampilkan hasil di konsol
+            alert(output); // Menampilkan hasil dalam pop-up alert
+        }
+
+        kalkulator();
+
+    </script>
+</body>
+</html>

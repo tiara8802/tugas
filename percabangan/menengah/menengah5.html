@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menentukan Lokasi Suatu Titik di Bidang Kartesius</title>
+</head>
+<body>
+    <h1>Menentukan Lokasi Titik (x, y) di Bidang Kartesius</h1>
+
+    <label for="koordinatX">Masukkan nilai x:</label>
+    <input type="number" id="koordinatX" value="0">
+
+    <br><br>
+
+    <label for="koordinatY">Masukkan nilai y:</label>
+    <input type="number" id="koordinatY" value="0">
+
+    <br><br>
+
+    <button id="cekButton">Cek Lokasi Titik</button>
+
+    <p id="output"></p>
+
+    <script>
+        // Menjalankan logika saat tombol ditekan
+        document.getElementById("cekButton").onclick = function() {
+            const x = parseInt(document.getElementById('koordinatX').value);
+            const y = parseInt(document.getElementById('koordinatY').value);
+            const output = document.getElementById('output');
+
+            if (x > 0 && y > 0) {
+                output.innerText = "Titik berada di kuadran I.";
+            } else if (x < 0 && y > 0) {
+                output.innerText = "Titik berada di kuadran II.";
+            } else if (x < 0 && y < 0) {
+                output.innerText = "Titik berada di kuadran III.";
+            } else if (x > 0 && y < 0) {
+                output.innerText = "Titik berada di kuadran IV.";
+            } else if (x === 0 && y !== 0) {
+                output.innerText = "Titik berada di sumbu y.";
+            } else if (x !== 0 && y === 0) {
+                output.innerText = "Titik berada di sumbu x.";
+            } else {
+                output.innerText = "Titik berada di titik pusat (0, 0).";
+            }
+        };
+
+        // Menjalankan logika dengan nilai default saat halaman dimuat
+        const defaultX = parseInt(document.getElementById('koordinatX').value);
+        const defaultY = parseInt(document.getElementById('koordinatY').value);
+        const output = document.getElementById('output');
+
+        if (defaultX > 0 && defaultY > 0) {
+            output.innerText = "Titik berada di kuadran I.";
+        } else if (defaultX < 0 && defaultY > 0) {
+            output.innerText = "Titik berada di kuadran II.";
+        } else if (defaultX < 0 && defaultY < 0) {
+            output.innerText = "Titik berada di kuadran III.";
+        } else if (defaultX > 0 && defaultY < 0) {
+            output.innerText = "Titik berada di kuadran IV.";
+        } else if (defaultX === 0 && defaultY !== 0) {
+            output.innerText = "Titik berada di sumbu y.";
+        } else if (defaultX !== 0 && defaultY === 0) {
+            output.innerText = "Titik berada di sumbu x.";
+        } else {
+            output.innerText = "Titik berada di titik pusat (0, 0).";
+        }
+    </script>
+</body>
+</html>

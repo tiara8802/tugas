@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menentukan Bilangan Terbesar</title>
+</head>
+<body>
+    <h1>Menentukan Bilangan Terbesar dari Tiga Bilangan yang Berbeda</h1>
+
+    <label for="bilanganX">Masukkan bilangan pertama (x):</label>
+    <input type="number" id="bilanganX" value="0">
+    
+    <br><br>
+
+    <label for="bilanganY">Masukkan bilangan kedua (y):</label>
+    <input type="number" id="bilanganY" value="0">
+    
+    <br><br>
+
+    <label for="bilanganZ">Masukkan bilangan ketiga (z):</label>
+    <input type="number" id="bilanganZ" value="0">
+    
+    <br><br>
+
+    <button id="cekButton">Cek Bilangan Terbesar</button>
+
+    <p id="output"></p>
+
+    <script>
+        // Menjalankan logika saat tombol ditekan
+        document.getElementById("cekButton").onclick = function() {
+            const x = parseInt(document.getElementById('bilanganX').value);
+            const y = parseInt(document.getElementById('bilanganY').value);
+            const z = parseInt(document.getElementById('bilanganZ').value);
+            const output = document.getElementById('output');
+
+            if (x === y || x === z || y === z) {
+                output.innerText = "Masukkan nilai yang berbeda untuk x, y, dan z.";
+            } else if (x > y && x > z) {
+                output.innerText = "Bilangan terbesar adalah: " + x;
+            } else if (y > x && y > z) {
+                output.innerText = "Bilangan terbesar adalah: " + y;
+            } else {
+                output.innerText = "Bilangan terbesar adalah: " + z;
+            }
+        };
+
+        // Menjalankan logika dengan nilai default saat halaman dimuat
+        const defaultX = parseInt(document.getElementById('bilanganX').value);
+        const defaultY = parseInt(document.getElementById('bilanganY').value);
+        const defaultZ = parseInt(document.getElementById('bilanganZ').value);
+        const output = document.getElementById('output');
+
+        if (defaultX === defaultY || defaultX === defaultZ || defaultY === defaultZ) {
+            output.innerText = "Masukkan nilai yang berbeda untuk x, y, dan z.";
+        } else if (defaultX > defaultY && defaultX > defaultZ) {
+            output.innerText = "Bilangan terbesar adalah: " + defaultX;
+        } else if (defaultY > defaultX && defaultY > defaultZ) {
+            output.innerText = "Bilangan terbesar adalah: " + defaultY;
+        } else {
+            output.innerText = "Bilangan terbesar adalah: " + defaultZ;
+        }
+    </script>
+</body>
+</html>

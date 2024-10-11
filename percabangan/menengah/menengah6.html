@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menentukan Hari ke-n Berdasarkan Tanggal dan Bulan</title>
+</head>
+<body>
+    <h1>Menentukan Hari ke-n Berdasarkan Tanggal dan Bulan</h1>
+
+    <label for="tanggal">Masukkan tanggal (1-31):</label>
+    <input type="number" id="tanggal" value="1" min="1" max="31">
+
+    <br><br>
+
+    <label for="bulan">Masukkan bulan (1-12):</label>
+    <input type="number" id="bulan" value="1" min="1" max="12">
+
+    <br><br>
+
+    <button id="cekButton">Cek Hari ke-n</button>
+
+    <p id="output"></p>
+
+    <script>
+        document.getElementById("cekButton").onclick = function() {
+            const tanggal = parseInt(document.getElementById('tanggal').value);
+            const bulan = parseInt(document.getElementById('bulan').value);
+            const output = document.getElementById('output');
+            
+            let hariKeN = tanggal;
+
+            for (let i = 1; i < bulan; i++) {
+                if (i === 2) {
+                    hariKeN += 28; // Februari
+                } else if (i === 4 || i === 6 || i === 9 || i === 11) {
+                    hariKeN += 30; // Bulan dengan 30 hari
+                } else {
+                    hariKeN += 31; // Bulan dengan 31 hari
+                }
+            }
+
+            output.innerText = "Hari ke-" + hariKeN;
+        };
+    </script>
+</body>
+</html>

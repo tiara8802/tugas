@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menentukan Bilangan Terbesar dari Tiga Bilangan</title>
+</head>
+<body>
+    <h1>Menentukan Bilangan Terbesar dari Tiga Bilangan</h1>
+
+    <label for="bilanganX">Masukkan bilangan pertama (x):</label>
+    <input type="number" id="bilanganX" value="0">
+
+    <br><br>
+
+    <label for="bilanganY">Masukkan bilangan kedua (y):</label>
+    <input type="number" id="bilanganY" value="0">
+
+    <br><br>
+
+    <label for="bilanganZ">Masukkan bilangan ketiga (z):</label>
+    <input type="number" id="bilanganZ" value="0">
+
+    <br><br>
+
+    <button id="cekButton">Cek Bilangan Terbesar</button>
+
+    <p id="output"></p>
+
+    <script>
+        // Menjalankan logika saat tombol ditekan
+        document.getElementById("cekButton").onclick = function() {
+            const x = parseInt(document.getElementById('bilanganX').value);
+            const y = parseInt(document.getElementById('bilanganY').value);
+            const z = parseInt(document.getElementById('bilanganZ').value);
+            const output = document.getElementById('output');
+
+            let result; // Variabel untuk menyimpan hasil
+
+            if (x >= y && x >= z) {
+                result = "Bilangan terbesar adalah: " + x;
+            } else if (y >= x && y >= z) {
+                result = "Bilangan terbesar adalah: " + y;
+            } else {
+                result = "Bilangan terbesar adalah: " + z;
+            }
+
+            // Menampilkan hasil di alert dan di output
+            alert(result); // Menampilkan hasil dalam alert
+            output.innerText = result; // Menampilkan hasil dalam elemen output
+        };
+
+        // Menjalankan logika dengan nilai default saat halaman dimuat
+        const defaultX = parseInt(document.getElementById('bilanganX').value);
+        const defaultY = parseInt(document.getElementById('bilanganY').value);
+        const defaultZ = parseInt(document.getElementById('bilanganZ').value);
+        const output = document.getElementById('output');
+
+        let defaultResult;
+
+        if (defaultX >= defaultY && defaultX >= defaultZ) {
+            defaultResult = "Bilangan terbesar adalah: " + defaultX;
+        } else if (defaultY >= defaultX && defaultY >= defaultZ) {
+            defaultResult = "Bilangan terbesar adalah: " + defaultY;
+        } else {
+            defaultResult = "Bilangan terbesar adalah: " + defaultZ;
+        }
+
+        // Menampilkan hasil default di alert dan di output
+        alert(defaultResult); // Menampilkan hasil dalam alert saat halaman dimuat
+        output.innerText = defaultResult; // Menampilkan hasil dalam elemen output
+    </script>
+</body>
+</html>

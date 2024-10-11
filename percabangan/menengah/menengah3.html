@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menentukan Akar-Akar Persamaan Kuadrat</title>
+</head>
+<body>
+    <h1>Menentukan Akar-Akar Persamaan Kuadrat</h1>
+
+    <label for="nilaiA">Masukkan nilai a:</label>
+    <input type="number" id="nilaiA" value="1">
+
+    <br><br>
+
+    <label for="nilaiB">Masukkan nilai b:</label>
+    <input type="number" id="nilaiB" value="1">
+
+    <br><br>
+
+    <label for="nilaiC">Masukkan nilai c:</label>
+    <input type="number" id="nilaiC" value="1">
+
+    <br><br>
+
+    <button id="cekButton">Cek Akar-Akar</button>
+
+    <script>
+        // Menjalankan logika saat tombol ditekan
+        document.getElementById("cekButton").onclick = function() {
+            const a = parseInt(document.getElementById('nilaiA').value);
+            const b = parseInt(document.getElementById('nilaiB').value);
+            const c = parseInt(document.getElementById('nilaiC').value);
+
+            const diskriminan = (b * b) - (4 * a * c);
+            let result;
+
+            if (diskriminan > 0) {
+                const x1 = (-b + Math.sqrt(diskriminan)) / (2 * a);
+                const x2 = (-b - Math.sqrt(diskriminan)) / (2 * a);
+                result = "Akar-akar real dan berbeda: x1 = " + x1 + ", x2 = " + x2;
+            } else if (diskriminan === 0) {
+                const x = -b / (2 * a);
+                result = "Akar-akar real dan sama: x = " + x;
+            } else {
+                result = "Akar-akar imajiner (tidak real).";
+            }
+
+            alert(result); // Menampilkan hasil dalam alert
+        };
+
+        // Menjalankan logika dengan nilai default saat halaman dimuat
+        const defaultA = parseInt(document.getElementById('nilaiA').value);
+        const defaultB = parseInt(document.getElementById('nilaiB').value);
+        const defaultC = parseInt(document.getElementById('nilaiC').value);
+
+        const defaultDiskriminan = (defaultB * defaultB) - (4 * defaultA * defaultC);
+        let defaultResult;
+
+        if (defaultDiskriminan > 0) {
+            const defaultX1 = (-defaultB + Math.sqrt(defaultDiskriminan)) / (2 * defaultA);
+            const defaultX2 = (-defaultB - Math.sqrt(defaultDiskriminan)) / (2 * defaultA);
+            defaultResult = "Akar-akar real dan berbeda: x1 = " + defaultX1 + ", x2 = " + defaultX2;
+        } else if (defaultDiskriminan === 0) {
+            const defaultX = -defaultB / (2 * defaultA);
+            defaultResult = "Akar-akar real dan sama: x = " + defaultX;
+        } else {
+            defaultResult = "Akar-akar imajiner (tidak real).";
+        }
+
+        alert(defaultResult); // Menampilkan hasil default di alert saat halaman dimuat
+    </script>
+</body>
+</html>

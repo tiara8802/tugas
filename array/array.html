@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Array</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let menuArray = [
+            "1. Menghitung Nilai Rata-rata",
+            "2. Mengurutkan Angka",
+            "3. Mencari Angka Terbesar",
+            "4. Deret Fibonacci"
+        ];
+
+        alert("Menu Array:\n" + menuArray.join("\n"));
+
+        let choice = prompt("Pilih menu (1-4): ");
+
+        switch (choice) {
+            case "1":
+                let averageInput = prompt("Masukkan angka (pisahkan dengan koma): ");
+                let numbers = averageInput.split(',').map(Number);
+                let sum = numbers.reduce((a, b) => a + b, 0);
+                let average = sum / numbers.length;
+                alert(`Rata-rata: ${average}`);
+                break;
+            case "2":
+                let sortInput = prompt("Masukkan angka (pisahkan dengan koma): ");
+                let sortNumbers = sortInput.split(',').map(Number);
+                let sortedNumbers = sortNumbers.sort((a, b) => a - b);
+                alert(`Angka terurut: ${sortedNumbers.join(', ')}`);
+                break;
+            case "3":
+                let maxInput = prompt("Masukkan angka (pisahkan dengan koma): ");
+                let maxNumbers = maxInput.split(',').map(Number);
+                let max = Math.max(...maxNumbers);
+                alert(`Angka terbesar: ${max}`);
+                break;
+            case "4":
+                let fibonacciInput = prompt("Masukkan n: ");
+                let fibonacci = [0, 1];
+                for (let i = 2; i < fibonacciInput; i++) {
+                    fibonacci.push(fibonacci[i - 1] + fibonacci[i - 9]);
+                }
+                alert(`Deret Fibonacci: ${fibonacci.slice(0, fibonacciInput).join(', ')}`);
+                break;
+            default:
+                alert("Menu tidak tersedia");
+        }
+    </script>
+</body>
+</html>
